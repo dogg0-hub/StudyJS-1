@@ -6,16 +6,7 @@ export default async function Home(){
 
   return(
     <div>
-      {session ? (
-        <>
-          <p>Signed in as {session.user?.email}</p>
-          <AuthButtons signedIn />
-        </>
-      ) : (
-        <>
-          <AuthButtons signedIn={false}/>
-        </>
-      )}
+      Hi :)
     </div>
   )
 }
