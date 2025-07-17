@@ -1,8 +1,21 @@
-import NextAuth from "next-auth"
+import NextAuth,{ NextAuthConfig } from "next-auth"
 import GitHub from "next-auth/providers/github"
 
-export const {} = NextAuth({
-    providers : {
-        
+
+export const { auth, handlers, signIn, signOut} = NextAuth({
+    providers:[
+        GitHub({
+            clientId: process.env.AUTH_GITHUB_ID ?? "",
+            clientSecret:process.env.AUTH_GITHUB_SECRET ?? "",
+        })
+    ],
+    pages: {
+        signIn: '/auth/signin',
+        error: '/auth/error',
+    },
+    callbacks:{
+        authorized:async({auth})=>{
+            return !!auth
+        },
     }
 })
