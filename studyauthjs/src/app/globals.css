@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a23;
+  --foreground: #e0e0ff;
 }
+
 
 @theme inline {
   --color-background: var(--background);
@@ -22,7 +23,8 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Geist', 'Segoe UI', sans-serif;
+  @apply antialiased;
 }
 
 .galaxy {
@@ -31,4 +33,13 @@ body {
   @apply shadow-lg hover:scale-105 hover:shadow-xl;
   @apply transition-all duration-300 ease-in-out;
   @apply border border-white/20 backdrop-blur-sm;
+}
+
+.galaxy-input {
+  @apply bg-white/10 text-white font-medium px-6 py-3 rounded-full;
+  @apply border border-white/20 backdrop-blur-sm;
+  @apply focus:outline-none focus:ring-2 focus:ring-purple-400/50;
+  @apply transition-all duration-300 ease-in-out;
+  @apply placeholder-white/60;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
 }
