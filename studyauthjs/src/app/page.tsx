@@ -7,9 +7,8 @@ export default function Home(){
   }
   return(
     <div>
-      Hi :)
-      <p>未サインイン</p>
-      <button className="galaxy" onClick={handleLogin}>Githubでサインイン</button>
+      <p>現在、未サインインです</p>
+      <button className="galaxy" onClick={handleLogin}>Github認証でサインイン</button>
     </div>
   )
 }
