@@ -1,11 +1,9 @@
 'use client';
 import { signIn } from "next-auth/react"
-import { AuthButtons } from "@/components/authButtons"
-import { login, logout } from "@/lib/actions/auth";
 
 export default function Home(){
   const handleLogin = async() =>{
-    signIn("github", { callbackUrl : "/"});
+    signIn("github", { callbackUrl : "/dashboard"});
   }
   return(
     <div>
