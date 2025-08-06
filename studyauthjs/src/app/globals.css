@@ -43,3 +43,11 @@ body {
   @apply placeholder-white/60;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
 }
+
+.galaxy-td {
+  @apply bg-white/10 text-white text-center font-semibold rounded-lg;
+  @apply border border-white/20 p-4 cursor-pointer;
+  @apply transition-all duration-300 ease-in-out;
+  @apply hover:ring-2 hover:ring-pink-400/50;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
