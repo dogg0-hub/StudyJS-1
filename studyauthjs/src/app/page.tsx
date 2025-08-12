@@ -9,11 +9,25 @@ export default function Home(){
   const today= new Date();
   const thisMonth = today.getMonth();
   const thisYear = today.getFullYear();
+  //当月の日数
+  const thisMonthDate = new Date(thisYear, thisMonth, 0).getDate();
   //仮データ
   const days = [0,1,2,3,4,5,6,7,8,9,10,
                 11,12,13,14,15,16,17,18,19,20,
                 21,22,23,24,25,26,27,28,29,30];
   
+  //7つに分割する
+  async function Slice7(days : number[]) : Promise<number[][]>{
+    const results : number[][]= [];
+    for(let i = 0; i < days.length; i++){
+      if(i % 6 === 0){
+        const sliced = days.slice(i, i + 6);
+        results.push(sliced);
+      }
+    }
+    console.log(results);
+    return results;
+  }
 
   return(
     <>
@@ -26,20 +40,13 @@ export default function Home(){
     </h1>
     <table className="w-full max-w-3xl mx-auto mt-6 border-separate border-spacing-2 backdrop-blur-sm border border-white/20 rounded-xl overflow-hidden shadow-xl">
       <tbody>
+        <tr>
           {days.map((day, i)=>(
-            <>
-            
-            {i !== 0 && i % 7 === 0 ?
-            <tr>
-              <td className="galaxy-input galaxy-td">
-              {day + "改行"}
-              </td>
-
-            </tr> : <td className="galaxy-input galaxy-td">
+            <td key={i} className="galaxy-input galaxy-td">
               {day}
-              </td>}
-            </>
-        ))}
+            </td>
+          ))}
+        </tr>
       </tbody>
     </table>
     
