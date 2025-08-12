@@ -10,24 +10,36 @@ export default function Home(){
   const thisMonth = today.getMonth();
   const thisYear = today.getFullYear();
   //当月の日数
-  const thisMonthDate = new Date(thisYear, thisMonth, 0).getDate();
+  const thisMonthDateNumber = new Date(thisYear, thisMonth, 0).getDate();
+  const thisMonthDate = addArrayForThisMonthDays(thisMonthDateNumber);
+  const slicedThisMonthDate = slice7(thisMonthDate)
   //仮データ
   const days = [0,1,2,3,4,5,6,7,8,9,10,
                 11,12,13,14,15,16,17,18,19,20,
                 21,22,23,24,25,26,27,28,29,30];
   
-  //7つに分割する
-  async function Slice7(days : number[]) : Promise<number[][]>{
+  //日数分を配列に入れる
+  async function addArrayForThisMonthDays(thisMonthDateNumber : number[]) : Promise<number[]>{
+    const results : number[] = [];
+    for(let i = 0; i < thisMonthDateNumber.length; i++){
+      results.push(i + 1);
+    }
+    return results;
+  }
+
+    //7つに分割する
+  async function slice7(date : number[]) : Promise<number[][]>{
     const results : number[][]= [];
-    for(let i = 0; i < days.length; i++){
+    for(let i = 0; i < date.length; i++){
       if(i % 6 === 0){
-        const sliced = days.slice(i, i + 6);
+        const sliced = date.slice(i, i + 6);
         results.push(sliced);
       }
     }
     console.log(results);
     return results;
   }
+  
 
   return(
     <>
