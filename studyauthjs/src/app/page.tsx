@@ -85,7 +85,11 @@ export default function Home(){
     </h2>
     <table className="w-full max-w-3xl mx-auto my-6 rounded-3xl shadow-2xl bg-gradient-to-br from-indigo-900/30 via-purple-900/20 to-pink-900/30 backdrop-blur-2xl border border-white/20 p-6 border-separate border-spacing-4">
       <tbody>
-        <tr className=" bg-white/10 backdrop-blur-sm">
+        <tr>
+
+        </tr>
+
+        <tr className="bg-white/10 backdrop-blur-sm">
           {kariYoubi.map((youbi,i)=>(
             <td key={i} className="text-white/50 text-center font-semibold py-2 px-4 rounded-md bg-white/10 backdrop-blur-sm">
               {youbi}
