@@ -17,29 +17,28 @@ export default function Home(){
   
   //一週間の曜日リスト
   const kariYoubi = ["月","火","水","木","金","土","日"];
-  const thisMonthDays = getThisMonthDays(thisYear, thisMonth, today);
+  const thisMonthDays = getThisMonthDays(thisYear, thisMonth);
 
-
-  function getThisMonthDays(thisYear : number, thisMonth : number, today : Date){
-    const firstDate = new Date(thisYear, thisMonth, 1);//初日
-    const firstDateDay = firstDate.getDay();//初日の曜日
-    console.log("firstDateDay is ", firstDateDay);
-
-    let obj = {};
+  function getThisMonthDays(thisYear : number, thisMonth : number){
+    let obj : {[key : number] : {year : number; month : number, date : number; day : string; dayNumber : number}}= {};
     for(let i = 0; i < thisMonthDateNumber; i++){
       let dateObj = new Date(thisYear, thisMonth, i + 1);
       let date = dateObj.getDate();
       let day = dateObj.getDay();
       let dayList : {[key : number]: string}= {0 : "日", 1 : "月", 2 : "火", 3 : "水", 4 : "木", 5 : "金", 6 : "土"};
 
-      obj = {
+      obj[i] = {
         year : thisYear,
         month : thisMonth + 1,
         date : date,
         day : dayList[day],
+        dayNumber : day,
       }
-      console.log("obj",obj);
     }
+    for(let i = 0; i < thisMonthDateNumber; i++){
+      console.log("オブジェクト",obj[i]);
+    }
+    return obj;
   }
 
   //ある
